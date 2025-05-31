@@ -1,0 +1,111 @@
+@import url(reset.css);
+
+@font-face {
+  font-family: "irish_groverregular";
+  src: url("../assets/fonts/irishgrover-regular-webfont.woff2") format("woff2"),
+    url("../assets/fonts/irishgrover-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "playfair_displayregular";
+  src: url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff2")
+      format("woff2"),
+    url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: "playfair_displayregular", serif;
+  background-color: #e7d8cf;
+  /* margin: 0;
+  padding: 0; */
+
+}
+
+.conditions {
+  background-color: #f9f5f3;
+  max-width: 1000px;
+  margin: 5rem auto 4rem;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: "playfair_displayregular", serif;
+  color: #333333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.conditions h1 {
+  font-family: "irish_groverregular", cursive;
+  font-size: 2rem;
+  color: #9b4d70;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.conditions h2 {
+  font-family: "playfair_displayregular", serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #7a5a58;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.conditions h3 {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #5a4a42;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid #d59dc4;
+  padding-bottom: 0.3rem;
+}
+
+.conditions p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.conditions a {
+  color: #b778a3;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.conditions a:hover {
+  color: #9b4d70;
+}
+
+
+@media (max-width: 600px) {
+  .conditions {
+    margin: 2rem 1rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .conditions h1 {
+    font-size: 2rem;
+  }
+
+  .conditions h2 {
+    font-size: 1.2rem;
+  }
+
+  .conditions h3 {
+    font-size: 1.1rem;
+  }
+
+  .conditions p {
+    font-size: 0.9rem;
+  }
+}

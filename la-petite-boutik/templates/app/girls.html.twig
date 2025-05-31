@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bout'chou Paradise | Vêtements Bébé Fille{% endblock %}
+
+{% block stylesheets %}
+  <link  href="{{ asset('css/style-girls.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+
+
+<main class="main"> 
+    <img class="picture" src="{{ asset('assets/picture/emilie.jpeg') }}"    alt="Emilie">
+
+    <p class="section__subtitle">Découvrez notre collection douce, colorée et pleine de charme pour vos petites princesses.</p> 
+
+   <h1 class="collection__title">Collection Girls - Tendances et Confort</h1>
+
+    <div class="section__block section__card">
+      <h2 class="subtitle">~ BARBOTEUSES ~</h2>
+
+    <p class="paragraph">Craquantes et confortables, nos barboteuses sont parfaites pour accompagner les premiers mouvements de bébé. <br>
+    Faciles à enfiler et douces pour la peau, elles allient style et praticité au quotidien.</p>
+
+   <section class="product">
+
+    {# {% for product in products %} #}
+
+        
+    <!-- Cartes produits barboteuses -->
+     <div class="product__card">
+       <img src="{{ asset('assets/product-girls/barboteuses/barboteuse-macao.webp') }}" alt="Barboteuse Fleurs d'Eté" />
+       <h2 class="product__name">Barboteuse Fleurs d'Eté</h2>
+       <p class="product__description">Légère et charmante, parfait pour les premières balades au soleil.</p>
+       <p class="price">35,00 €</p>
+       <button>Ajouter au panier</button>
+     </div>
+
+     <div class="product__card">
+       <img src="{{ asset('assets/product-girls/barboteuses/barboteuse-Pink.jpg') }}" alt="Barboteuse Fraise sucrée" />
+       <h2 class="product__name">Barboteuse Fraise sucrée</h2>
+       <p class="product__description">Cette barboteuse rose fera fondre toutes les petites fées.</p>
+       <p class="price">24,90 €</p>
+       <button>Ajouter au panier</button>
+     </div>
+
+     <div class="product__card">
+        <img src="{{ asset('assets/product-girls/barboteuses/barboteuse-Princesse.webp') }}" alt="Barboteuse Couronne">
+       <h2 class="product__name">Barboteuse Rêve de Princesse</h2>
+       <p class="product__description">Une tenue royale pour mini majesté. Confort et magie réunis.</p>
+       <p class="price">35,00 €</p>
+       <button>Ajouter au panier</button>
+     </div>
+
+     <div class="product__card">
+       <img src="{{ asset('assets/product-girls/barboteuses/barboteuse-Lilas.jpg') }}" alt="" />
+       <h2 class="product__name">Barboteuse Lilas</h2>
+       <p class="product__description">Cette barboteuse lilas enveloppe bébé d'une douce élégance pastel.</p>
+       <p class="price">24,90 €</p>
+       <button>Ajouter au panier</button>
+     </div>
+    </section>
+
+
+    <div class="section__block section__card">
+        <h2 class="subtitle">~ ROBES ~</h2>    
+        <p class="paragraph">Des robes légères pour l'été, élégantes pour les grandes occasions ou douillettes pour l’hiver : <br> découvrez notre sélection pensée pour toutes les petites filles, de la plus espiègle à la plus coquette.</p>
+
+     <section class="product">
+    <!-- Cartes produits robes -->
+     <div class="product__card">
+       <img src="{{ asset('assets/product-girls/dresses/white-dress.webp') }}" alt="Robe Nuages" />
+       <h2 class="product__name">Robe Nuages</h2>
+       <p class="product__description">Légèreté, douceur, parfaite pour les journées d'été.</p>
+       <p class="price">39,90 €</p>
+       <button>Ajouter au panier</button>
+     </div>
+
+     <div class="product__card">
+       <img src="{{ asset('assets/product-girls/dresses/flower-dress.jpg') }}" alt="Robe Pétales" />
+       <h2 class="product__name">Robe Pétales</h2>
+       <p class="product__description">Un bouquet de fleurs pour habiller votre petite princesse avec charme.</p>
+       <p class="price">34,90 €</p>
+       <button>Ajouter au panier</button>
+     </div>
+
+     <div class="product__card">
+       <img src="{{asset('assets/product-girls/dresses/red-dress.webp') }}" alt="Robe Cerise d'été" />
+       <h2 class="product__name">Robe Cerise d'été</h2>
+       <p class="product__description">Une petite robe pour des moments remplis de douceur.</p>
+       <p class="price">39,90 €</p>
+       <button>Ajouter au panier</button>
+     </div>
+
+     <div class="product__card">
+       <img src="{{ asset('assets/product-girls/dresses/blue-dress.webp') }}" alt="Robe Rêve d'azur" />
+       <h2 class="product__name">Robe Rêve d'azur</h2>
+       <p class="product__description">Une petite robe pour les soirées habillées de votre petite princesse.</p>
+       <p class="price">34,90 €</p>
+       <button type="button">Ajouter au panier</button>
+     </div>
+
+         {# {% endfor %} #}
+   </section>
+   </div>
+</main>
+{% endblock %}

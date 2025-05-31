@@ -1,0 +1,59 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Admin Bout'chou | Produits{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
+{% endblock %}   
+
+
+{% block body %}
+    <h2>Liste des produits</h2>
+
+        <a class="btn-add" href="{{ path('admin_product_new') }}">Ajouter un produit</a>
+
+    <table class="data_table">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Nom</th>
+                <th>Description</th>
+                 <th>Couleur</th>
+                <th>Taille</th>
+                <th>Genre</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th>Stock</th>                  
+                <th>Actions</th>                  
+            </tr>  
+        </thead>
+
+    <tbody>
+
+   
+        {% for product in products %}
+
+                <tr>
+                    <td data-label="Référence">{{ product.reference }}</td>
+                    <td data-label="Nom">{{ product.name }}</td>
+                    <td data-label="Description">{{ product.description }}</td>
+                    <td data-label="Couleur">{{ product.color }}</td>
+                    <td data-label="Taille">{{ product.size }}</td>
+                    <td data-label="Genre">{{ product.gender }}</td>
+                    <td data-label="Catégorie">{{ product.category.name }}</td>
+                    <td data-label="Prix">{{ product.price|number_format(2, ',', ' ') }} €</td>
+                    <td data-label="Stock">{{ product.stock }}</td>
+                     <td data-label="Actions">
+                        <a href="{{ path('admin_product_edit', {'id': product.id}) }}">Modifier</a> |
+                        <a href="{{ path('admin_product_delete', {'id': product.id}) }}" onclick="return confirm('Supprimer ce produit ?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">Aucun produit trouvé.</td>
+                </tr>
+        {% endfor %}
+    </tbody>
+     </table>
+
+{% endblock %}

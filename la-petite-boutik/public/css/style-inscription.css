@@ -1,0 +1,124 @@
+@import url(reset.css);
+
+@font-face {
+  font-family: "irish_groverregular";
+  src: url("../assets/fonts/irishgrover-regular-webfont.woff2") format("woff2"),
+    url("../assets/fonts/irishgrover-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "playfair_displayregular";
+  src: url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff2")
+      format("woff2"),
+    url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.account__login__page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #e7d8cf;
+}
+
+.form__content {
+  background-color: #d9a5c0; /* Rose pâle pastel */
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.2); /* ombre rose douce */
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 20px;
+}
+
+.form__content:hover {
+  transform: scale(1.02);
+}
+
+.register {
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.why-register {
+  background-color: #fbe8f1;
+  border-radius: 15px;
+  margin: 40px auto;
+  padding: 20px;
+  width: 80%;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #5e2a4d;
+}
+.why-register h2 {
+  margin-bottom: 15px;
+}
+.why-register ul {
+  list-style: none;
+  padding: 0;
+}
+.why-register li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.login__title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ff69b4;
+  text-align: center;
+  font-family: "irish_groverregular", cursive;
+  position: relative;
+}
+
+.login__title::before {
+  font-size: 1.5rem;
+  position: absolute;
+  left: -30px;
+  top: 0;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+form input {
+  width: 100%;
+  padding: 0.7rem;
+  /* margin-top: 0.5rem; */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  font-size: 1rem;
+  font-family: "playfair_displayregular", sans-serif;
+}
+
+button {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+}
+
+button:hover {
+  background-color: #ff4fa1;
+  transform: scale(1.03);
+}

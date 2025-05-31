@@ -1,0 +1,16 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Ajouter un produit{% endblock %}
+{% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style-new.css') }}">
+{% endblock %}   
+
+{% block body %}
+    <h2>Ajouter un produit</h2>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">Ajouter</button>
+    {{ form_end(form) }}
+{% endblock %}

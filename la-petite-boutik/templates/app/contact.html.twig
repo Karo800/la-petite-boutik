@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bout'chou Paradise | Contact{% endblock %}
+
+{% block stylesheets %}
+  <link  href="{{ asset('css/style-contact.css') }}" rel="stylesheet" />
+{% endblock %}
+       
+{% block body %}
+
+ <section class="form__intro">
+   <div class="form__heading__container">
+     <h2 class="form__heading">~ FORMULAIRE ~</h2>
+   </div>
+
+   <p class="form__subtitle">
+     <img
+       src="assets/picture/Baby-Girl-Logo-Background.png"
+       alt="bébé à gauche"
+       class="form__icon"
+     />
+
+     Une question, un doute, ou un petit mot à nous confier ?<br />
+     Notre cigogne livre vos messages. Envoyez-lui le vôtre, on s'occupe
+     du reste !
+
+     <img
+       src="assets/picture/Baby-Girl-Logo-Background.png"
+       alt="bébé à droite"
+       class="form__icon"
+     />
+   </p>
+ </section>
+
+ <div class="contact__section">
+   <h3 class="contact__title">Nous contacter</h3>
+   <div>
+     <img
+       src="assets/picture/stork.jpg"
+       alt="stork with baby sack"
+       class="background__picture"
+     />
+   </div>
+
+   <div class="contact__container">
+     <img
+       src="assets/picture/baby-contact.png"
+       alt="baby peeking"
+       class="baby__overlay"
+     />
+
+     <!-- Formulaire -->
+     <div class="form__content">
+       <form
+         action=""
+         class="contact__form"
+         aria-label="Formulaire de contact"
+       >
+         <label for="name">Nom</label>
+         <input type="text" id="lastname" name="lastname"placeholder="Votre nom" required />
+
+         <label for="name">Prénom</label>
+         <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required />
+
+         <label for="email">Email</label>
+         <input type="email" id="email" name="email" placeholder="Votre email" required />
+
+         <label for="subject">Sujet</label>
+         <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required />
+
+         <label for="message">Message</label>
+         <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+
+         <button class="button" type="submit">Envoyer</button>
+       </form>
+     </div>
+   </div>
+ </div>
+     
+    
+{% endblock %}  

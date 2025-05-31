@@ -1,0 +1,113 @@
+@import url(reset.css);
+
+@font-face {
+  font-family: "irish_groverregular";
+  src: url("../assets/fonts/irishgrover-regular-webfont.woff2") format("woff2"),
+    url("../assets/fonts/irishgrover-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "playfair_displayregular";
+  src: url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff2")
+      format("woff2"),
+    url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: "playfair_displayregular", serif;
+  background-color: #e7d8cf;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+ 
+}
+
+.section__subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #c17a9d;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.collection__title {
+  font-family: "irish_groverregular", cursive;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #8a3d5a;
+  margin-bottom: 1.5rem;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.product__card {
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  background-color: white;
+  position: relative;
+}
+
+.product__card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product__name {
+  font-size: 1.2rem;
+  color: #333333;
+  margin-top: 0.5rem;
+}
+
+.product__description {
+  font-size: 0.9rem;
+  /* color: #666; */
+  margin: 0.5rem 0;
+  font-style: italic;
+  color: aqua;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #f25b88;
+}
+
+button {
+  background-color: #f25b88;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: none;
+}
+
+button:hover {
+  background-color: #d04a73;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(242, 91, 136, 0.5);
+}

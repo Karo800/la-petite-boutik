@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bout'chou Paradise | Notre Histoire{% endblock %}
+
+
+{% block stylesheets %}
+  <link  href="{{ asset('css/style-our-story.css') }}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block body %}
+
+
+          <section class="welcome">
+          <div class="story__container">
+            <h2 class="story__title">~ NOTRE HISTOIRE ~</h2>
+          </div>
+
+        </section>
+
+        <div class="content__wrapper">
+
+          <p class="subtitle__section">
+            Notre boutique célèbre la douceur et l'élégance pour les
+            tout-petits. <br>
+
+            Découvrez un univers apaisant où chaque détail est
+            pensé pour offrir confort et style à votre bébé.
+          </p>
+          <img
+            src="assets/picture/corner-picture.jpg"
+            alt="coin haut gauche"
+            class="corner__icon top__left"
+          />
+          <img
+            src="assets/picture/corner-picture.jpg"
+            alt="coin haut droite"
+            class="corner__icon top__right"
+          />
+          <section class="presentation">
+            <img
+              src="assets/picture/baby-girl-pink.jpg"
+              alt="Bébé avec bonnet"
+            />
+
+            <div class="paragraph">
+              <p>
+                Bienvenue dans notre boutique dédiée aux bébés, un véritable
+                écrin de douceur et de magie. Parce que les premiers instants de
+                vie sont précieux, nous avons sélectionné pour vous une gamme
+                d'articles aussi tendres que fonctionnels.
+              </p>   
+              <p>
+                Du linge de lit douillet aux vêtements confortables, en passant par les jouets
+                éducatifs et les accessoires essentiels, chaque produit a été
+                choisi avec soin pour accompagner votre bébé dans chaque étape
+                de son développement.
+              </p>
+
+            </div>
+          </section>
+
+          <section class="values">
+            <img src="assets/picture/baby-sit.jpg" alt="Bébé assis" />
+            <div class="paragraph">
+              <p>
+                Nous croyons que chaque détail compte, c'est pourquoi nous
+                privilégions des matériaux de qualité, respectueux de la peau
+                délicate des tout-petits, et adoptons une démarche
+                écoresponsable dans le choix de nos collections.
+              </p>
+
+               <p>Offrez à votre enfant un monde empreint de douceur, de bien-être et d'amour.
+                Nous sommes là pour transformer ces précieux moments en souvenirs inoubliables.
+              </p>
+            </div>
+          </section>
+
+          <img
+            src="assets/picture/corner-picture.jpg"
+            alt="coin bas gauche"
+            class="corner__icon bottom__left"
+          />
+
+          <img
+            src="assets/picture/corner-picture.jpg"
+            alt="coin bas droit"
+            class="corner__icon bottom__right"
+          />
+        </div>
+        
+{% endblock %}
+
+

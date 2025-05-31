@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bout'chou Paradise | TROUVER LA BOUTIQUE A PARIS{% endblock %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/style-find_us.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+
+
+  <h2 class="findus__title">~ NOUS TROUVER ~</h2>
+
+  <div class="findus__welcome">
+    <p class="paragraph">
+      Venez nous rendre visite dans notre petit coin de paradis !
+    </p>
+    <p class="paragraph">
+      Notre boutique vous accueille avec douceur et sourires pour vous
+      aider à choisir de jolies trouvailles pour les tout-petits.
+    </p>
+    <br />
+    <p class="paragraph">
+      Nous avons hâte de vous rencontrer ! Retrouvez-nous facilement grâce
+      à la carte ci-dessous.
+    </p>
+  </div>
+
+  <div class="findus__section">
+    <div class="findus__info">
+      <p class="paragraph">
+        Adresse : 115, rue de Rivoli, 75001 Paris, France
+      </p>
+      <p class="paragraph">Horaires : Lundi - Vendredi : 9 h - 19 h</p>
+      <p class="paragraph">
+        Téléphone : <a href="tel:01-42-10-05-07">01 42 10 05 07</a>
+      </p>
+      <p class="paragraph">
+        Email :
+        <a href="mailto:boutchou@gmail.com">boutchou@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="findus__map">
+      <iframe
+       title="Carte de localisation de la boutique"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.6992577680307!2d2.3285380772896698!3d48.86394497133289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2f00394297%3A0x855932138d10af1!2s115%20Rue%20de%20Rivoli%2C%2075001%20Paris!5e0!3m2!1sfr!2sfr!4v1746615297833!5m2!1sfr!2sfr"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div> 
+
+{% endblock %}

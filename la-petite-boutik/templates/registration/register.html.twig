@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bout'chou | Inscription-Nouveau client{% endblock %}
+
+{% block stylesheets %}
+  <link  href="{{ asset('css/style-inscription.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+
+
+
+{# 
+    <h1></h1>
+
+     {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}       
+            {{ form_row(registrationForm.firstName) }}
+            {{ form_row(registrationForm.lastName) }}
+            {{ form_row(registrationForm.email) }}     
+            {{ form_row(registrationForm.phone) }}
+            {{ form_row(registrationForm.address) }}
+            {{ form_row(registrationForm.city) }}
+            {{ form_row(registrationForm.zipcode) }}
+            {{ form_row(registrationForm.password, {
+            label: 'Password'
+        }) }}
+        {# {{ form_row(registrationForm.agreeTerms) }} #}
+
+        {# <button type="submit" class="btn">Enregistrer</button>
+    {{ form_end(registrationForm) }} #}
+
+
+<!-- inscription -->
+<!-- <div class="account__new__page"> -->
+ <div class="register">
+  <span class="login__title">S'INSCRIRE</span>
+
+  <div class="form__content">
+    <form action="{{ path('app_register') }}" method="post" class="contact__form">
+      <label for="lastname">Nom :</label>
+      <input type="text" id="lastname" name="lastname" required />
+
+      <label for="firstname">Prénom :</label>
+      <input type="text" id="firstname" name="firstname" required />
+
+      <label for="email_register">Adresse e-mail :</label>
+      <input type="email" id="email_register" name="email" required />
+
+      <label for="password_register">Mot de passe :</label>
+      <input
+        type="password"
+        id="password_register"
+        name="password"
+        required
+      />
+
+      <label for="confirm_password">Confirmer le mot de passe :</label>
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        required
+      />
+
+      <button type="submit" class="button">S'inscrire</button>
+    </form>
+  </div>
+</div>
+   </main>    
+   {% endblock %} 

@@ -1,0 +1,287 @@
+@import url(reset.css);
+
+@font-face {
+  font-family: "irish_groverregular";
+  src: url("../assets/fonts/irishgrover-regular-webfont.woff2") format("woff2"),
+    url("../assets/fonts/irishgrover-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "playfair_displayregular";
+  src: url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff2")
+      format("woff2"),
+    url("../assets/fonts/playfairdisplay-variablefont_wght-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html,
+body {
+  font-size: 16px;
+  font-family: "playfair_displayregular", serif;
+  background-color: #e7d8cf;
+}
+
+/********** MAIN **********/
+.form__intro {
+  background-color: #e7d8cf;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form__heading__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  /* margin-top: -0.5rem; */
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form__heading {
+  font-family: "irish_groverregular", cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #b8528f;
+  margin: 0;  
+}
+
+.form__subtitle {
+  font-family: "playfair_displayregular", serif;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  display: inline-block;
+}
+
+.form__icon {
+  width: 28px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+  margin-left: 0.3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/********** BACKGROUND PICTURE **********/
+.contact__section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.background__picture {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.baby__overlay {
+  position: absolute;
+  top: -29%;
+  transform: translateX(-50%);
+  height: 250px;
+  z-index: 2;
+}
+
+.contact__title {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 4rem;
+  color: #000;
+  font-weight: bold;
+  font-family: "playfair_displayregular", serif;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.contact__container {
+  position: absolute;
+  top: 72%;
+  left: 65%;
+  transform: translate(-48%, -50%);
+  background-color: #e7d8cf;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.2);
+  width: 95%;
+  max-width: 500px;
+ 
+}
+
+.contact__form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #444;
+  font-weight: bold;
+  text-align: left;
+}
+
+.contact__form input,
+.contact__form textarea {
+  font-size: 1.1rem;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  font-family: "playfair_displayregular", sans-serif;
+}
+
+.contact__form textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.button {
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background-color: #d48cae;
+  color: #444;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.button:hover {
+  background-color: #bc7a9e;
+  transform: scale(1.03);
+}
+
+/********** Animate panier **********/
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/********** ANIMATION LET'S GO **********/
+@keyframes popUp {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/********** ANIMATION LOGO baby **********/
+@keyframes swing {
+  0% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    filter: drop-shadow(0 0 0px #ffc8ec);
+    opacity: 0.9;
+  }
+  50% {
+    filter: drop-shadow(0 0 8px #ffc8ec);
+    opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 0px #ffc8ec);
+    opacity: 0.9;
+  }
+}
+
+/********** ANIMATION TEXT **********/
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/**
+   * ----------------------------------------
+   * animation fade-in-top
+   * ----------------------------------------
+   */
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/**
+   * ----------------------------------------
+   * animation tracking-in-contract
+   * ----------------------------------------
+   */
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+/********** ANIMATE BABYS **********/
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

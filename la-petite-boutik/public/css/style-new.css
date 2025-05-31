@@ -1,0 +1,66 @@
+@import url(reset.css);
+
+
+form {
+  max-width: 700px;
+  margin: 2rem auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Champs de formulaire */
+form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #8b5e83;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #cb9bbc;
+  outline: none;
+}
+
+/* Bouton de soumission */
+form button.btn {
+  background-color: #cb9bbc;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button.btn:hover {
+  background-color: #b288a9;
+}
+
+/* Message flash */
+.flash-success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px;
+  margin: 1rem 0;
+  border-left: 4px solid #28a745;
+  border-radius: 6px;
+}
