@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interface d'administration Bout'chou Paradise.">
    
-    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon">           
     
-    <!-- cdn font awesome pour les icônes -->    
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-9dyFOn9eDGNqqhvIO4nXL5uC12rW7xZ4Qxcz2BpGiTZ0kRGI4Rja7HE7ah4IMKQbZg5i2cVGcGqk4cFMIavz0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>{% block title %}Admin | Bout'chou Paradise{% endblock %}</title>
-   
-   
-     {% block stylesheets %}
+
     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
+
+      <!-- cdn font awesome pour les icônes -->  
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.css">
+   
+    {% block stylesheets %}
+    
     {% endblock %}   
 </head> 
 
@@ -32,20 +35,18 @@
         <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
 
       <ul class="sidebar-menu">
-        <li><a href="{{ path('admin_home') }}"><i class="fas fa-home"></i> Tableau de bord</a></li>
+        <li><a href="{{ path('app_admin') }}"><i class="fas fa-home"></i> Tableau de bord</a></li>
         <li><a href="{{ path('admin_products') }}"><i class="fas fa-box"></i> Produits</a></li>
-        <li><a href="{{ path('admin_orders') }}"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
-        <li><a href="{{ path('admin_category') }}"><i class="fas fa-tags"></i> Catégories</a></li>
+        <li><a href=""><i class="fas fa-shopping-cart"></i> Commandes</a></li>
+        <li><a href="{{ path('admin_categorys') }}"><i class="fas fa-tags"></i> Catégories</a></li>
         <li><a href="{{ path('admin_users') }}"><i class="fas fa-users"></i> Utilisateurs</a></li>
-        <li><a href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+        <li><a href="{{ path('app_logout') }}" title="Retour à l'accueil"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
       </ul>
-
     </aside>
 
       <main class="admin-content">
          {% block body %}{% endblock %}
       </main>
-
     
   </div>
 
@@ -56,6 +57,11 @@
     </script>
 
     {% block javascripts %}{% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.3.1/js/dataTables.js">
+        new DataTable('#table__products');
+    </script>
 
 </body>
 </html>

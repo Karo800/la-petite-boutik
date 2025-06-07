@@ -4,56 +4,66 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style-new.css') }}">
 {% endblock %}   
 
 
 {% block body %}
-    <h2>Liste des produits</h2>
 
-        <a class="btn-add" href="{{ path('admin_product_new') }}">Ajouter un produit</a>
+    <h2>LISTE DES PRODUITS</h2>
 
-    <table class="data_table">
+        <a class="btn-add" href="{{ path('admin_product_add') }}">Ajouter un produit</a>
+
+    <table class="data_table" id="table__products">
         <thead>
             <tr>
                 <th>Référence</th>
                 <th>Nom</th>
                 <th>Description</th>
-                 <th>Couleur</th>
+                <th>Couleur</th>
                 <th>Taille</th>
                 <th>Genre</th>
+                <th>Image</th>
                 <th>Catégorie</th>
                 <th>Prix</th>
                 <th>Stock</th>                  
                 <th>Actions</th>                  
             </tr>  
         </thead>
-
-    <tbody>
-
-   
+        <tbody>
         {% for product in products %}
-
-                <tr>
-                    <td data-label="Référence">{{ product.reference }}</td>
-                    <td data-label="Nom">{{ product.name }}</td>
-                    <td data-label="Description">{{ product.description }}</td>
-                    <td data-label="Couleur">{{ product.color }}</td>
-                    <td data-label="Taille">{{ product.size }}</td>
-                    <td data-label="Genre">{{ product.gender }}</td>
-                    <td data-label="Catégorie">{{ product.category.name }}</td>
-                    <td data-label="Prix">{{ product.price|number_format(2, ',', ' ') }} €</td>
-                    <td data-label="Stock">{{ product.stock }}</td>
-                     <td data-label="Actions">
-                        <a href="{{ path('admin_product_edit', {'id': product.id}) }}">Modifier</a> |
-                        <a href="{{ path('admin_product_delete', {'id': product.id}) }}" onclick="return confirm('Supprimer ce produit ?')">Supprimer</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="10">Aucun produit trouvé.</td>
-                </tr>
+            <tr>
+                <td data-label="Référence">{{ product.reference }}</td>
+                <td data-label="Nom">{{ product.name }}</td>
+                <td data-label="Description">{{ product.description }}</td>
+                <td data-label="Couleur">{{ product.color }}</td>
+                <td data-label="Taille">{{ product.size }}</td>
+                <td data-label="Genre">{{ product.gender }}</td>
+                <td data-label="Image">
+                    {% if product.picture %}
+                    <img src="{{ asset('uploads/products/' ~ product.picture) }}" alt="{{ product.name }}" width="80">
+                    {% else %}
+                    Aucune image
+                    {% endif %}
+                </td>
+                <td data-label="Catégorie">{{ product.category.name }}</td>
+                <td data-label="Prix">{{ product.price|number_format(2, ',', ' ') }} €</td>
+                <td data-label="Stock">{{ product.stock }}</td>
+                <td data-label="Actions">
+                    <a href="{{ path('admin_product_edit', {'id': product.id}) }}" title="Modifier"><i class="fas fa-pen-to-square"></i></a>
+                    <a href="{{ path('admin_product_delete', {'id': product.id}) }}" onclick="return confirm('Supprimer ce produit ?')"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+        {# {% else %}
+            <tr>
+                <td colspan="11">Aucun produit trouvé.</td>
+            </tr> #}
         {% endfor %}
-    </tbody>
-     </table>
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block javascripts %}
 
 {% endblock %}

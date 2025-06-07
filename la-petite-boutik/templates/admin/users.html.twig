@@ -2,8 +2,53 @@
 
 {% block title %}Admin Bout'chou | Utilisateurs{% endblock %}
 
+{# {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">    
+{% endblock %}    #}
+
+
 {% block body %}
 
        <h1>Liste des utilisateurs</h1>
+
+{%  if users is not empty %}       
+       <table class="data_table">
+        <thead>
+            <tr>
+                <th>ID</th>                
+                <th>Email</th>
+                <th>Rôle</th>
+                <th>Mot de passe</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Code Postal</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>                 
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles|join(', ') }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.city }}</td>
+                    <td>{{ user.zipcode }}</td>
+                   
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Aucun utilisateur trouvé.</p>
+{% endif %}
+
     
 {% endblock %}

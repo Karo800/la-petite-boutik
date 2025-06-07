@@ -26,7 +26,6 @@ public function findByGender(string $gender): array
         ->getResult();
 }
 
-
 }
 
 

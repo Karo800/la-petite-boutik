@@ -9,10 +9,9 @@
 
 {% block body %}      
              
-   {# <main class="account__login__page">            
 <!-- connexion --> 
-<div class="login">
-  <span class="login__title">DEJA INSCRIT ?</span> #}
+{# <div class="login">
+  <span class="login__title">DEJA INSCRIT ?</span> #} 
 {# 
   <div class="form__content">
     <form action="{{ path('app_login') }}" method="post"> #}
@@ -31,8 +30,11 @@
 </div> #}
 
 <!-- inscription -->
-<!-- <div class="account__new__page"> -->
- <div class="register">
+ {# <div class="account__new__page">  #}
+
+
+
+    <main class="account__login__page">            
 
     <div class="why-register">
       <h2>Pourquoi créer un compte ?</h2>
@@ -43,7 +45,7 @@
         </ul>
     </div>
 
-  <span class="login__title">S'INSCRIRE</span>
+  <div class="login__title">S'INSCRIRE</div>
 
   <div class="form__content">
     <form action="{{ path('app_register') }}" method="post" class="contact__form">
@@ -75,7 +77,7 @@
       <button type="submit" class="button">S'inscrire</button>
     </form>
   </div>
-</div>
-   {# </main>     #}
+</main>
+
 {% endblock %}      
 

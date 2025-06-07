@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\Product;
 use App\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,7 @@ use App\Repository\ProductRepository;
 final class AppController extends AbstractController
 {
 
-    // Accueil et prinipales pages
+    // Accueil 
     #[Route('/', name: 'app_home')]
     public function home(): Response
     {
@@ -40,45 +41,12 @@ final class AppController extends AbstractController
     }
 
     #[Route('/boys', name: 'app_boys')]
-    public function boys(): Response
+    public function boys(ProductRepository $productRepository): Response
     {
-        return $this->render('app/boys.html.twig', []);
+           $products = $productRepository->findByGender('fille');
+        return $this->render('app/boys.html.twig', ['products' => $products,]);
     }
 
-
-    #[Route('/admin/products', name: 'admin_products')]
-    public function products(ProductRepository $productRepository): Response
-    {
-        $products = $productRepository->findAll();
-
-        return $this->render('admin/products.html.twig', [
-            'products' => $products,
-        ]);
-    }
-
-#[Route('/admin/product/new', name: 'admin_product_new')]
-public function new(Request $request, EntityManagerInterface $em): Response
-{
-    $product = new Product();
-    $form = $this->createForm(ProductType::class, $product);
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-        $product->setCreatedAt(new \DateTimeImmutable());
-
-        $em->persist($product);
-        $em->flush();
-
-        $this->addFlash('success', 'Produit ajouté avec succès !');
-
-        return $this->redirectToRoute('admin_products'); // ou une autre route
-    }
-
-    return $this->render('admin/product_new.html.twig', [
-        'form' => $form->createView(),
-    ]);
-}
-    
     // A propos
     #[Route('/our-story', name: 'app_our_story')]
     public function ourStory(): Response
@@ -93,20 +61,19 @@ public function new(Request $request, EntityManagerInterface $em): Response
         return $this->render('app/inscription.html.twig', []);
     }
 
-
-    // Pages Infos
+    // Page Contact
     #[Route('/contact', name: 'app_contact')]
     public function contact(): Response
     {
         return $this->render('app/contact.html.twig', []);
     }
 
+    // Page Nous Trouver
     #[Route('/find-us', name: 'app_find_us')]
     public function findUs(): Response
     {
         return $this->render('app/find-us.html.twig', []);
     }
-
 
     // Pages  Mentions Légales
     #[Route('/conditions-generales', name: 'app_cgv')]
@@ -134,7 +101,6 @@ public function new(Request $request, EntityManagerInterface $em): Response
     {
         return $this->render('app/account.html.twig', []);
     }
-
 
     // Page Newsletter
     #[Route('/newsletter', name: 'app_newsletter_subscribe', methods: ['POST'])]

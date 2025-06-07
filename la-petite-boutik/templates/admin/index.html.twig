@@ -1,20 +1,79 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.admin.html.twig' %}
 
-{% block title %}Hello Admin/ProductController!{% endblock %}
+{% block title %}Admin Bout'chou | AdminDashboard{% endblock %}
+
+   {% block stylesheets %}
+       <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
+    {% endblock %} 
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1 class="title">Tableau de bord</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Recherche..." />
+             <button><i class="fas fa-search"></i></button>
+        </div>
+        
+    <main class="main-content">
+        <header class="header">
+           
+            <div class="admin-info">
+                   <span>Admin</span>
+            </div>
+        </header>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/SYMFONY/la-petite-boutik/src/Controller/Admin/ProductController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/SYMFONY/la-petite-boutik/templates/admin/product/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+        <section class="stats">
+            <div class="card">
+                <h3><i class="fas fa-shopping-cart"></i> Commandes</h3>
+                <p>125</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-euro-sign"></i> Ventes</h3>
+                <p>1 240 €</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-user-plus"></i> Nouveaux clients</h3>
+                <p>24</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-box-open"></i> Produits en rupture</h3>
+                <p>3</p>
+            </div>               
+        </section>
+
+        <section class="recent-products">
+               {# <h2>Produits récents</h2> #}
+            <table>
+                <thead>
+                    <tr>
+                       <th>Produit</th>
+                       <th>Prix</th>
+                       <th>Stock</th>
+                       <th>Date d'ajout</th>
+                    </tr>
+                </thead>
+                <tbody>
+                       {# {% for product in recent_products %}
+                           <tr>
+                               <td>{{ product.name }}</td>
+                               <td>{{ product.price }} €</td>
+                               <td>{{ product.stock }}</td>
+                               <td>{{ product.createdAt|date("d/m/Y") }}</td>
+                           </tr>
+                       {% else %}
+                           <tr><td colspan="4">Aucun produit récent.</td></tr>
+                       {% endfor %} #}
+                </tbody>
+               
+               </table>
+        </section>
+ </main>
+    
+    <footer class="admin-footer">
+        <p>&copy; {{ "now"|date("Y") }} Bout'chou Paradise - Tous droits réservés.</p>
+    </footer>
+    
+ {% endblock %} 
