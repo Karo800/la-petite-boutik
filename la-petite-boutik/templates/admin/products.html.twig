@@ -54,10 +54,10 @@
                     <a href="{{ path('admin_product_delete', {'id': product.id}) }}" onclick="return confirm('Supprimer ce produit ?')"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
-        {# {% else %}
+        {% else %}
             <tr>
                 <td colspan="11">Aucun produit trouvé.</td>
-            </tr> #}
+            </tr>
         {% endfor %}
         </tbody>
     </table>

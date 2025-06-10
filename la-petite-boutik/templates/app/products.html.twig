@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Produits{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-products.css') }}">
+{% endblock %}
+
+
+{% block body %}
+    <h1>Nos Produits</h1>
+    
+        <div class="product">
+        {% for product in products %}
+            <div class="product__card">
+             <h2 class="product__name">{{ product.name }}</h2>   
+                {% if product.picture %}                
+                    <img src="{{ asset('uploads/products/' ~ product.picture) }}" alt="{{ product.name }}">
+                    
+                {% endif %}
+                <p class="product__description">{{ product.description }}</p>
+                <p class="price">Prix : {{ product.price|number_format(2, ',', ' ') }} €</p>
+                <button>Ajouter au panier</button>
+            </div>
+        {% else %}
+            <p>Aucun produit disponible pour le moment.</p>
+        {% endfor %}
+        </div>
+{% endblock %}

@@ -25,7 +25,6 @@ body {
   background-color: #e7d8cf;
   /* margin: 0;
   padding: 0; */
-
 }
 
 .conditions {
@@ -85,7 +84,6 @@ body {
 .conditions a:hover {
   color: #9b4d70;
 }
-
 
 @media (max-width: 600px) {
   .conditions {

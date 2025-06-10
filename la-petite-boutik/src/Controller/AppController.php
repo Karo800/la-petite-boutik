@@ -32,19 +32,31 @@ final class AppController extends AbstractController
     // Produits
     #[Route('/girls', name: 'app_girls')]
     public function girls(ProductRepository $productRepository): Response
-{
-            $products = $productRepository->findByGender('fille');
-   
+    {
+        $products = $productRepository->findByGender('fille');
+
+
+        // dd($products);
         return $this->render('app/girls.html.twig', [
-                'products' => $products,
-                ]);
+            'products' => $products,
+        ]);
     }
 
     #[Route('/boys', name: 'app_boys')]
     public function boys(ProductRepository $productRepository): Response
     {
-           $products = $productRepository->findByGender('fille');
+        $products = $productRepository->findByGender('garçon');
         return $this->render('app/boys.html.twig', ['products' => $products,]);
+    }
+
+    #[Route('/products', name: 'app_products')]
+    public function appProducts(ProductRepository $repoProducts): Response
+    {
+        $products = $repoProducts->findAll();
+
+        return $this->render('app/products.html.twig', [
+            'products' => $products,
+        ]);
     }
 
     // A propos
@@ -109,6 +121,13 @@ final class AppController extends AbstractController
         $email = $request->request->get('email');
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $subscription = new NewsletterSubscription();
+            $subscription->setEmail($email);
+            $subscription->setCreatedAt(new \DateTimeImmutable());
+
+            $em->persist($subscription);
+            $em->flush();
+
             $this->addFlash('success', 'Votre inscription a bien été prise en compte.');
         } else {
             $this->addFlash('error', 'Email invalide. Veuillez réessayer.');

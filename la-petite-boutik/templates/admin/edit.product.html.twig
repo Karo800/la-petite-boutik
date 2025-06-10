@@ -5,13 +5,36 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style-new.css') }}">   
+
+    <style>
+        .picture__product{
+            display: flex;
+            align-items:center;
+            justify-content: center;
+        }
+
+        .picture__edit{
+            width: 50%
+        }
+    </style>
 {% endblock %} 
 
 {% block body %}
     <h2>Modifier le produit</h2>
 
     {{ form_start(form) }}
+        <div class="picture__product">
+            <img src="{{ asset('uploads/products/' ~ product.picture) }}" alt="{{ product.name }}" class="picture__edit">
+        </div>
+
         {{ form_widget(form) }}
+
+        {# {{ dump(product.picture) }}
+        {{ dump(product.category.name) }} #}
+
+        {# {% if %}
+            
+        {% endif %} #}
         <button class="btn">Enregistrer</button>
     {{ form_end(form) }}
 

@@ -9,12 +9,14 @@
     
     <title>{% block title %}Admin | Bout'chou Paradise{% endblock %}</title>
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.css">
+
     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
 
       <!-- cdn font awesome pour les icônes -->  
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.css">
+    
    
     {% block stylesheets %}
     
@@ -38,7 +40,7 @@
         <li><a href="{{ path('app_admin') }}"><i class="fas fa-home"></i> Tableau de bord</a></li>
         <li><a href="{{ path('admin_products') }}"><i class="fas fa-box"></i> Produits</a></li>
         <li><a href=""><i class="fas fa-shopping-cart"></i> Commandes</a></li>
-        <li><a href="{{ path('admin_categorys') }}"><i class="fas fa-tags"></i> Catégories</a></li>
+        <li><a href="{{ path('admin_categories') }}"><i class="fas fa-tags"></i> Catégories</a></li>
         <li><a href="{{ path('admin_users') }}"><i class="fas fa-users"></i> Utilisateurs</a></li>
         <li><a href="{{ path('app_logout') }}" title="Retour à l'accueil"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
       </ul>
@@ -58,9 +60,12 @@
 
     {% block javascripts %}{% endblock %}
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.datatables.net/2.3.1/js/dataTables.js">
-        new DataTable('#table__products');
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/2.3.1/js/dataTables.js"></script>
+    <script>
+        new DataTable('#table__products', [
+          
+        ]);
     </script>
 
 </body>

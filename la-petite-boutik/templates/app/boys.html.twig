@@ -11,21 +11,25 @@
 
  <main class="main">
  
- <img class="picture" src="{{ asset('assets/picture/jules.jpeg') }}" alt="Jules">
-   <p class="section__subtitle">Découvrez notre collection pleine de style, de douceur pour vos petits aventuriers.</p> 
+  <img class="picture" src="{{ asset('assets/picture/jules.jpeg') }}" alt="Jules">
+    <p class="section__subtitle">Découvrez notre collection pleine de style, de douceur pour vos petits aventuriers.</p> 
 
- <h1 class="collection__title">Collection Garçons - Tendances et Confort</h1>
-   <section class="product">
+  <h1 class="collection__title">Collection Garçons - Tendances et Confort</h1>
+    <section class="product">
 
-     <div class="product__card">
-       <img src="{{ asset('assets/product-boys/romper-boat.jpg') }}" alt="Barboteuse bateau" />
-       <h2 class="product__name">Barboteuse Petit Prince</h2>
-       <p class="product__description">Confortable en coton, idéale pour les journées d'été .</p>
-       <p class="price">35,00 €</p>
+    {% for product in products %} 
+       <div class="product__card">
+        {% if product.picture %} 
+       <img src="{{ asset('uploads/products/' ~ product.picture) }}" alt="{{ product.name }}">
+        {% endif %}
+       <h2 class="product__name">{{ product.name}}</h2>
+       <p class="product__description">{{ product.description}}</p>
+       <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
        <button>Ajouter au panier</button>
      </div>
+    {% endfor %} 
 
-     <div class="product__card">
+     {# <div class="product__card">
        <img src="{{ asset('assets/product-boys/romper-marine.webp') }}" alt="Barboteuse blue" />
        <h2 class="product__name">Barboteuse Boat</h2>
        <p class="product__description">Bleu profond avec boutons pression pour un habillage facile.</p>
@@ -79,7 +83,8 @@
        <p class="product__description">Pyjama en coton animalier.</p>
        <p class="price">34,90 €</p>
        <button type="button">Ajouter au panier</button>
-     </div>
+     </div> #}
    </section>
 
+</main>
 {% endblock %}

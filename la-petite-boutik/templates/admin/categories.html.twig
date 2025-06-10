@@ -1,0 +1,51 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Admin Bout'chou | Catégorie de produits{% endblock %}
+
+{% block stylesheets %}
+    {# <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}"> #}
+{% endblock %}   
+
+
+{% block body %}
+
+    <h2>LISTE DES CATEGORIES</h2>
+
+     <a class="btn-add" href="{{ path('admin_categories_add') }}">Ajouter une catégorie</a>
+
+          <table class="data_table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>               
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.description }}</td>
+                    <td data-label="Actions">
+                    <a href="{{ path('admin_categories_edit', {'id': category.id}) }}" title="Modifier">
+                        <i class="fas fa-pen-to-square"></i>
+                    </a>
+                    <a href="{{ path('admin_categories_delete', {'id': category.id}) }}" onclick="return confirm('Supprimer cette catégorie ?')">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                    </td>
+                </tr>
+                   
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune catégorie trouvée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

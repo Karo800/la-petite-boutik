@@ -2,20 +2,20 @@
 
 namespace App\Controller;
 
-use App\Repository\UserRepository;
-use App\Entity\Category;
 use App\Entity\Product;
-use App\Form\CategoryType;
+use App\Entity\Category;
 use App\Form\ProductType;
-use App\Repository\CategoryRepository;
+use App\Form\CategoryType;
+use App\Repository\UserRepository;
 use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 final class AdminController extends AbstractController
 {
@@ -133,7 +133,7 @@ final class AdminController extends AbstractController
         ]);
     }
 
-
+    // PRODUCT DELETE
     #[Route('/admin/product/delete/{id}', name: 'admin_product_delete')]
     public function deleteProduct(
         Product $product,
@@ -180,19 +180,20 @@ final class AdminController extends AbstractController
         ]);
     }
 
-
+     
+    
     // CATEGORIES
-    #[Route('/admin/categorys', name: 'admin_categorys')]
+    #[Route('/admin/categories', name: 'admin_categories')]
     public function category(CategoryRepository $categoryRepository): Response
     {
-        $categorys = $categoryRepository->findAll();
+        $categories = $categoryRepository->findAll();
 
-        return $this->render('admin/categorys.html.twig', [
-            'categorys' => $categorys,
+        return $this->render('admin/categories.html.twig', [
+            'categories' => $categories,
         ]);
     }
 
-    #[Route('/admin/category/add', name: 'admin_category_add')]
+    #[Route('/admin/categories/add', name: 'admin_categories_add')]
     public function addCategory(Request $request, EntityManagerInterface $em): Response
     {
         $category = new Category();
@@ -206,7 +207,7 @@ final class AdminController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'La catégorie a été enregistrée.');
-            return $this->redirectToRoute('admin_categorys');
+            return $this->redirectToRoute('admin_categories');
         }
 
         return $this->render('admin/add.category.html.twig', [
@@ -215,13 +216,47 @@ final class AdminController extends AbstractController
     }
 
 
+    // EDIT CATEGORY
+    #[Route('/admin/categories/edit/{id}', name: 'admin_categories_edit')]
+    public function editCategory(Category $category, Request $request, EntityManagerInterface $em): Response
+    {
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+
+            $this->addFlash('success', 'La catégorie a été modifiée.');
+            return $this->redirectToRoute('admin_categories');
+        }
+
+        return $this->render('admin/edit.category.html.twig', [
+            'form' => $form->createView(),
+            'category' => $category,
+        ]);
+    }
+
+
+    // DELETE CATEGORY
+    #[Route('/admin/categories/delete/{id}', name: 'admin_categories_delete')]
+    public function deleteCategory(Category $category, EntityManagerInterface $em): Response
+    {
+        $em->remove($category);
+        $em->flush();
+
+        $this->addFlash('success', 'La catégorie a été supprimée.');
+        return $this->redirectToRoute('admin_categories');
+    }
+
 
     // USER
     #[Route('/admin/users', name: 'admin_users')]
     public function users(UserRepository $userRepository): Response
     {
+        // va chercher ts les users de la BDD
         $users = $userRepository->findAll();
 
+        // affiche le template admin/users en passant la liste des utilisateurs
         return $this->render('admin/users.html.twig', [
             'users' => $users,
         ]);
